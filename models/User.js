@@ -7,18 +7,19 @@ const userSchema = new Schema(
             type: String,
             unique: true,
             trim: true,
-            required: "Username is Required",
+            required: true,
         },
+        
         email: {
             type: String,
             unique: true,
-            required: "Username is Required",
-            match: [/.+@.+\..+/],
+            required: true,
+            match: [/.+@.+\..+/, 'Must match an email address!'],
         },
 
         thoughts: [
             {
-                type: Schema.Types.ObjectId,
+                type: Schema.Types.ObjectId, 
                 ref: "Thought",
             },
         ],
@@ -30,6 +31,7 @@ const userSchema = new Schema(
             },
         ],
     },
+
     {
         toJSON: {
             virtuals: true,
@@ -38,8 +40,6 @@ const userSchema = new Schema(
     }
 );
 
-
-// Create a virtual property `fullName` that gets and sets the user's full name
 userSchema.virtual('friendCount').get(function () {
         return `${this.friends.length}`;
     })

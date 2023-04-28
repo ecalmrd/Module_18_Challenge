@@ -21,7 +21,7 @@ const ReactionSchema = new Schema(
             required: true,
         },
 
-        createdat: {
+        createdAt: {
             type: Date,
             default: Date.now,
             get: (timestamp) => dateFormat(timestamp),
@@ -40,6 +40,8 @@ const ThoughtSchema = new Schema(
         thoughtText: {
             type: String,
             required: "Thought is required",
+            minlength: 1,
+            maxlength: 280
         },
         
         createdAt: {
@@ -51,7 +53,7 @@ const ThoughtSchema = new Schema(
         username:
         {
             type: String,
-            required: "Username is required",
+            required: true,
         },
 
         reactions: [ReactionSchema],

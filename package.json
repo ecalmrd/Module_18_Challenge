@@ -23,8 +23,8 @@
     "mongoose": "^7.0.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "nodemon": "^2.0.9"
   },
-
   "homepage": "https://github.com/ecalmrd/Module_18_Challenge#readme"
 }
